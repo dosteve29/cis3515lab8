@@ -21,12 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar my_toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(my_toolbar);
-
         webPageAdapter = new WebPageAdapter(getSupportFragmentManager());
         viewPager = findViewById(R.id.webViewPager);
         viewPager.setAdapter(webPageAdapter);
-
-
 
     }
 
@@ -40,18 +37,20 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case R.id.newpageview:
-                // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(getApplicationContext(), "New Page", Toast.LENGTH_SHORT).show();
+                webPageAdapter.createNewWebFragment(); // creates the new page within the viewpager
+                viewPager.setCurrentItem(webPageAdapter.getCount() - 1); //goes to the last page
                 return true;
 
             case R.id.previous:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                Toast.makeText(getApplicationContext(), "Previous Page", Toast.LENGTH_SHORT).show();
+                if (viewPager.getCurrentItem() > 0){ //
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+                }
                 return true;
 
             case R.id.next:
-                Toast.makeText(getApplicationContext(), "Next Page", Toast.LENGTH_SHORT).show();
+                if (viewPager.getCurrentItem() < webPageAdapter.getCount() - 1){
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                }
                 return true;
             default:
                 // If we got here, the user's action was not recognized.
