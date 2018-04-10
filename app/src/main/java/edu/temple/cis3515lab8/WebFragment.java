@@ -1,20 +1,20 @@
 package edu.temple.cis3515lab8;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.TextView;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class WebFragment extends Fragment {
-    private static int i = 0;
+    private String currentURL = "";
 
     public WebFragment() {
         // Required empty public constructor
@@ -25,10 +25,30 @@ public class WebFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_web, container, false);
-        TextView textView = view.findViewById(R.id.textView);
-        textView.setText(Integer.toString(i));
-        i++;
         return view;
+    }
+
+    public void updateText(String text){
+        currentURL = text;
+    }
+
+    public String getURL(){
+        return currentURL;
+    }
+
+    public void loadURL(){
+        WebView webView = getView().findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView webView, String url) {
+                super.onPageFinished(webView, url);
+                currentURL = url;
+                EditText editText = getActivity().findViewById(R.id.urlText);
+                editText.setText(currentURL, TextView.BufferType.EDITABLE);
+            }
+        });
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(currentURL);
     }
 
 }
