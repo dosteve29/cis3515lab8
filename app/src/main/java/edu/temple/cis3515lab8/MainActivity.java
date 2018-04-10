@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar my_toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(my_toolbar);
 
-//
-//        webPageAdapter = new WebPageAdapter(getSupportFragmentManager());
-//        viewPager = findViewById(R.id.webViewPager);
-//        viewPager.setAdapter(webPageAdapter);
+        webPageAdapter = new WebPageAdapter(getSupportFragmentManager());
+        viewPager = findViewById(R.id.webViewPager);
+        viewPager.setAdapter(webPageAdapter);
+
+
 
     }
 
