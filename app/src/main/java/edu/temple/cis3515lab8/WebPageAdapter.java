@@ -18,11 +18,19 @@ public class WebPageAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = new WebFragment();
+        Bundle args = new Bundle();
+        args.putInt(WebFragment.ARG_OBJECT, position + 1);
+        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return 100;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position){
+        return "OBJECT " + (position + 1);
     }
 }
