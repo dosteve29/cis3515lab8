@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <!--
+        Menu item's that displayed on Toolbar.
+    -->
+    <item
+        android:id="@+id/newpageview"
+        android:orderInCategory="100"
+        android:title="@string/newWebView"
+        android:icon="@drawable/newpage"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/next"
+        android:orderInCategory="300"
+        android:title="Next"
+        android:icon="@drawable/nextpage"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/previous"
+        android:orderInCategory="200"
+        android:icon="@drawable/previouspage"
+        android:title="Previous"
+        app:showAsAction="ifRoom" />
+</menu>

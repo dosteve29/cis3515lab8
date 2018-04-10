@@ -2,6 +2,9 @@
     <string name="app_name">CIS3515Lab8</string>
     <string name="urlText">URL</string>
     <string name="goButton">Go</string>
+    <string name="newWebView">New</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
