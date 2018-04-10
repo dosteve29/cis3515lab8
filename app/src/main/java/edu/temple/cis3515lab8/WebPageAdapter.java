@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class WebPageAdapter extends FragmentStatePagerAdapter {
     private ArrayList<WebFragment> webFragList;
 
-    private WebPageAdapter(FragmentManager fm){
+    public WebPageAdapter(FragmentManager fm){
         super(fm);
         webFragList = new ArrayList<>();
     }
