@@ -34,5 +34,4 @@ public class WebPageAdapter extends FragmentStatePagerAdapter {
         webFragList.add(new WebFragment());
         notifyDataSetChanged();
     }
-
 }

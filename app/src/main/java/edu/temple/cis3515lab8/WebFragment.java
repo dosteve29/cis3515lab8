@@ -48,7 +48,11 @@ public class WebFragment extends Fragment {
             }
         });
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(currentURL);
+        if (currentURL.contains("https://")){
+            webView.loadUrl(currentURL);
+        } else{
+            webView.loadUrl("https://".concat(currentURL));
+        }
     }
 
 }

@@ -30,6 +30,27 @@ public class MainActivity extends AppCompatActivity {
         webPageAdapter = new WebPageAdapter(getSupportFragmentManager());
         viewPager = findViewById(R.id.webViewPager);
         viewPager.setAdapter(webPageAdapter);
+        viewPager.setOffscreenPageLimit(100);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                WebFragment webFragment = (WebFragment) webPageAdapter.getItem(viewPager.getCurrentItem());
+                urlText.setText(webFragment.getURL(), TextView.BufferType.EDITABLE);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                WebFragment webFragment = (WebFragment) webPageAdapter.getItem(viewPager.getCurrentItem());
+                urlText.setText(webFragment.getURL(), TextView.BufferType.EDITABLE);
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         //Button and EditText from Main Activity Layout
         Button goBtn = findViewById(R.id.goBtn);

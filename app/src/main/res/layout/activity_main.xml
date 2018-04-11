@@ -24,27 +24,31 @@
     <Button
         android:id="@+id/goBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/goButton"
         app:layout_constraintBottom_toTopOf="@+id/webViewPager"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
     <EditText
         android:id="@+id/urlText"
         android:layout_width="266dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/urlText"
-        android:inputType="textPersonName"
+        android:inputType="text|textUri"
         app:layout_constraintBottom_toTopOf="@+id/webViewPager"
         app:layout_constraintEnd_toStartOf="@+id/goBtn"
         app:layout_constraintHorizontal_bias="0.298"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/webViewPager"
@@ -53,8 +57,10 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goBtn" />
 
 </android.support.constraint.ConstraintLayout>
